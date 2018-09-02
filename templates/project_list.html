@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>项目管理</title>
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#">项目列表</a>
+			</div>
+		</div>
+		<div id="main" class="container">
+			<button class="btn-primary" data-bind="click:goAdd">新增项目</button>
+			<table class="table table-striped">
+				<thead>
+					<td>ID</td>
+					<td>项目名称</td>
+					<td>项目简介</td>
+					<td>归属者</td>
+				</thead>
+
+
+				<tbody data-bind="foreach: project_list, visible: project_list().length > 0 ">
+					<tr>
+					<td data-bind="text: id"></td>
+					<td data-bind="text: name"></td>
+					<td data-bind="text: memo"></td>
+					<td data-bind="text: owner"></td>
+					<td><a  href="#" data-bind="click: $parent.updateProject">修改</a>&nbsp;&nbsp;<a href="#" data-bind="click: $parent.removeProject" >删除</a> </td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script> -->
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+		<script src="{{ url_for('static',filename='projectlist.js') }}"> </script>
+	</body>
+</html>
